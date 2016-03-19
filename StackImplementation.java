@@ -125,17 +125,25 @@ public class StackImplementation {
 	 * The checkInteger method is to check the user enters valid input when
 	 * a value is pushed into stack.  
 	 * 
+	 * The parameter is taken as a string. for the given input the loop checks if all the characters in the parameter are digits.
+	 * the value is calculated when the given parameter doesnot have any characters . 
+	 * else it returns -1. 
+	 * 
 	 * @param next- The value entered by user. 
 	 * @return- -1 when the user enter invalid input. 
-	 * 		       integer value when user gives a valid input.  
+	 * 		        
 	 */
 	private int checkInteger(String next) {
 		int result = -1;
-		try {
-			result = Integer.parseInt(next);
-		} catch (NumberFormatException e) {
-			System.out.println("value entered is not an integer. ");
+		boolean isInteger = true;
+		for (int index = 0; index < next.length(); index++) {
+			isInteger = isInteger && Character.isDigit(next.charAt(index));
 		}
+		
+		if (isInteger) {
+			result = Integer.parseInt(next);
+		}
+		
 		return result;
 	}
 	
@@ -156,12 +164,22 @@ public class StackImplementation {
 			System.out.println("4. isEmpty");
 			System.out.println("5. printStack");
 			ch = sc.next();
-
 			switch (ch) {
 			case "1":
-				System.out
-						.println("Please enter the value of element to push into the stack");
-				int num = obj.checkInteger(sc.next());
+				System.out.println("Please enter the value of element to push into the stack");
+				String input=sc.next();
+				/*
+				 * The element to be added to the stack is assigned to input. 
+				 * 1. When the input is a single length string .
+				 * 		i. The character is checked to be a digit or not. 
+				 * 			if the character entered is a digit value of the integer is computed and assigned to num.
+				 * 			if the character entered is an alphabet , the ASCI value is computed and assigned to num. 
+				 * 2. When the input has a length greater than 1.
+				 *    	i. checkInteger method is called to compute the integer value.  
+				 * 
+				 */
+				int num = (input.length() == 1 ? (Character.isDigit(input.charAt(0)) ?
+						Integer.valueOf(input) : input.charAt(0)) : obj.checkInteger(input));
 				if (num != -1) {
 					obj.push(num);
 				} else {
@@ -191,8 +209,7 @@ public class StackImplementation {
 				break;
 			}
 
-			System.out
-					.println("Please enter \"Y\" to continue and any other key to stop.");
+			System.out.println("Please enter \"Y\" to continue and any other key to stop.");
 			ch = sc.next();
 
 		} while (ch.equals("Y") || ch.equals("y"));
