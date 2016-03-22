@@ -46,19 +46,12 @@ public class PriorityQueue {
 	 * 
 	 */
 	public void insert(int element) {
-		if (priorityQueue.length == lastIndex) {
-			resize();
-		} else {
+	
 			priorityQueue[++lastIndex] = element;
 			System.out.println("new element inserted "
 					+ priorityQueue[lastIndex]);
 			percolateUp(lastIndex);
-		}
-
-	}
-
-	private void resize() {
-
+		
 	}
 
 	/**
