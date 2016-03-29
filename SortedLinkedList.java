@@ -53,8 +53,7 @@ public class SortedLinkedList {
 	 * performed before-1 ;after- 3. new element 2 is entered between 1 and 3.
 	 * 
 	 * 
-	 * @param element
-	 *            - new Node value.
+	 * @param element- new Node value.
 	 */
 	public void add(int element) {
 		Node newNode = new Node(element);
@@ -151,8 +150,7 @@ public class SortedLinkedList {
 	 * calculated when the given parameter doesnot have any characters . else it
 	 * returns -1.
 	 * 
-	 * @param next
-	 *            - The value entered by user.
+	 * @param next - The value entered by user.
 	 * @return- -1 when the user enter invalid input.
 	 * 
 	 */
@@ -179,7 +177,7 @@ public class SortedLinkedList {
 			System.out.println("1. Add node to the Liked List");
 			System.out.println("2. remove node from the linked List");
 			System.out.println("3. isEmpty");
-			System.out.println("5. Display Linked List");
+			System.out.println("4. Display Linked List");
 			ch = sc.next();
 			switch (ch) {
 			case "1":
@@ -220,7 +218,7 @@ public class SortedLinkedList {
 				}
 				break;
 
-			case "3":
+			case "4":
 				if (obj.isEmpty()) {
 					System.out.println("Queue is empty");
 				} else {
