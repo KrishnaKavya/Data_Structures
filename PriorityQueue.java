@@ -1,3 +1,4 @@
+import java.util.Queue;
 import java.util.Scanner;
 
 /**
@@ -31,9 +32,11 @@ import java.util.Scanner;
 public class PriorityQueue {
 	public int priorityQueue[];
 	public int lastIndex = 0;
+	public int size;
 
 	PriorityQueue(int size) {
 		priorityQueue = new int[size];
+		this.size=size;
 	}
 
 	/**
@@ -46,11 +49,31 @@ public class PriorityQueue {
 	 * 
 	 */
 	public void insert(int element) {
-	
+		if (priorityQueue.length == lastIndex) {
+			resize();
+		} else {
 			priorityQueue[++lastIndex] = element;
 			System.out.println("new element inserted "
 					+ priorityQueue[lastIndex]);
 			percolateUp(lastIndex);
+		}
+
+	}
+
+	public void resize() {
+
+		
+		int newqueue[]=new int[size];
+		
+		for (int i = 1; i <=lastIndex; i++) {
+		newqueue[i]=priorityQueue[i];
+		}
+		this.priorityQueue=new int[4*size];
+		
+		for (int i = 1; i <=lastIndex; i++) {
+			priorityQueue[i]=priorityQueue[i];
+		}
+		
 		
 	}
 
@@ -58,8 +81,7 @@ public class PriorityQueue {
 	 * 
 	 * Method to satisfy the heap property.
 	 * 
-	 * @param i
-	 *            - the last index of the priority Queue which has the new
+	 * @param i - the last index of the priority Queue which has the new
 	 *            inserted element.
 	 */
 	public void percolateUp(int i) {
@@ -195,11 +217,12 @@ public class PriorityQueue {
 		int min = pq.deleteMin();
 		System.out.println(" element with highest priority " + min);
 		System.out.println(" The elements in the priority Queue after deletion");
-
+		pq.resize();
 		for (int i = 1; i <= pq.lastIndex; i++) {
 			System.out.print(pq.priorityQueue[i] + " ");
 		}
-
+		
+		
 		sc.close();
 	}
 

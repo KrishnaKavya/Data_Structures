@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Stack;
 
 /**
  * A linked list is a linear data structure where each element is a separate
@@ -53,7 +54,8 @@ public class SortedLinkedList {
 	 * performed before-1 ;after- 3. new element 2 is entered between 1 and 3.
 	 * 
 	 * 
-	 * @param element- new Node value.
+	 * @param element
+	 *            - new Node value.
 	 */
 	public void add(int element) {
 		Node newNode = new Node(element);
@@ -97,14 +99,15 @@ public class SortedLinkedList {
 	}
 
 	/**
-	 * Method to remove node(element) from the linked List. 
+	 * Method to remove node(element) from the linked List.
 	 * 
-	 * case 1: To remove the element in the head node, the next element is made head. 
+	 * case 1: To remove the element in the head node, the next element is made
+	 * head.
 	 * 
-	 * case 2: To remove the element the element is found in the linked list using the
-	 * before and after indices with the similar concept used in the insert method. The
-	 * pointer of the before node is assigned to after.next node which removes the element
-	 * from the linked list.  
+	 * case 2: To remove the element the element is found in the linked list
+	 * using the before and after indices with the similar concept used in the
+	 * insert method. The pointer of the before node is assigned to after.next
+	 * node which removes the element from the linked list.
 	 * 
 	 * @param element
 	 */
@@ -126,8 +129,10 @@ public class SortedLinkedList {
 			}
 		}
 	}
+
 	/**
-	 * Method to check duplicate elements in the linked List. 
+	 * Method to check duplicate elements in the linked List.
+	 * 
 	 * @param element
 	 * @return
 	 */
@@ -137,6 +142,7 @@ public class SortedLinkedList {
 			if (temp.value == element) {
 				return true;
 			}
+			temp=temp.next;
 		}
 		return false;
 	}
@@ -150,7 +156,8 @@ public class SortedLinkedList {
 	 * calculated when the given parameter doesnot have any characters . else it
 	 * returns -1.
 	 * 
-	 * @param next - The value entered by user.
+	 * @param next
+	 *            - The value entered by user.
 	 * @return- -1 when the user enter invalid input.
 	 * 
 	 */
@@ -168,6 +175,26 @@ public class SortedLinkedList {
 		return result;
 	}
 
+	public void reverse() {
+		if(isEmpty()){
+			System.out.println(" The Linked List is Empty. ");
+			return;
+		}else{
+		Node temp = head;
+		Stack<Node> stack = new Stack<Node>();
+		// Pushing the All the nodes into the stack.
+		while (temp != null) {
+			stack.push(temp);
+			temp = temp.next;
+		}
+		System.out.println(" The reverse of a Linked List is: ");
+		while (!stack.isEmpty()) {
+			System.out.print(stack.pop().value+" ");
+		}
+
+		}
+	}
+
 	public static void main(String[] args) {
 		SortedLinkedList obj = new SortedLinkedList();
 		Scanner sc = new Scanner(System.in);
@@ -177,7 +204,8 @@ public class SortedLinkedList {
 			System.out.println("1. Add node to the Liked List");
 			System.out.println("2. remove node from the linked List");
 			System.out.println("3. isEmpty");
-			System.out.println("4. Display Linked List");
+			System.out.println("5. Display Linked List");
+			System.out.println("6. Display reverse of a linked List");
 			ch = sc.next();
 			switch (ch) {
 			case "1":
@@ -218,7 +246,7 @@ public class SortedLinkedList {
 				}
 				break;
 
-			case "4":
+			case "3":
 				if (obj.isEmpty()) {
 					System.out.println("Queue is empty");
 				} else {
@@ -229,6 +257,9 @@ public class SortedLinkedList {
 				obj.display();
 				System.out.println();
 				break;
+			case "6":
+				obj.reverse();
+				break;
 			}
 
 			System.out
@@ -236,5 +267,6 @@ public class SortedLinkedList {
 			ch = sc.next();
 
 		} while (ch.equals("Y") || ch.equals("y"));
+		sc.close();
 	}
 }
