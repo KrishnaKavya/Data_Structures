@@ -14,7 +14,7 @@
 
 public class BubbleSort {
 	/**
-	 * 
+	 *  
 	 * 
 	 * we start comparision with the one element with its adjacent element. 
 	 * if swap the elements of the left element is greater than the right.
