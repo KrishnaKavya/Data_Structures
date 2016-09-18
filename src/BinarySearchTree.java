@@ -16,30 +16,65 @@
 public class BinarySearchTree {
 	public Node root;
 
-	private class Node {
+	public class Node {
 		public int value;
 		public Node leftNode;
 		public Node rightNode;
+
+		public Node(int value, Node left, Node right) {
+			this.value = value;
+			this.leftNode = left;
+			this.rightNode = right;
+		}
 	}
 
-	
 	/**
+	 * The function inserts the node to the Binary Search Tree. To perform the
+	 * insertion operation in the BST. The following steps are followed
+	 * 
+	 * 1. If the tress is empty, the new Node is assigned as the root node. 2.
+	 * else, The tree is parsed based on the criteria starting with the root
+	 * node. 2.1 If the value of the new Node is less than the current node, we
+	 * parse to the left node. 2.2 If the value of the new Node is greater than
+	 * the current node, we parse to the right node. 3. The above step is
+	 * performed till we reach the node which has a null leaf node. And the new
+	 * Node is inserted in the position.
 	 * 
 	 * @param newNode
+	 *            - new Node to the tree.
 	 */
-	public void insert(Node newNode) {
-
+	public void insert(int val) {
+		Node newNode = new Node(val, null, null); // creating a new node in the
+													// tree
+		Node temp = root;
+		if (root == null) { // when tree is empty the new node is assigned to
+							// the root node.
+			root = newNode;
+		} else {
+			while (temp != null) { // while the node is not null the tree is
+									// parsed based on the conditions(mentioned
+									// in function comments)
+				if (newNode.value < temp.value) {
+					if (temp.leftNode == null) {
+						temp.leftNode = newNode;
+						System.out.println("left node inserted");
+						break;
+					} else {
+						temp = temp.leftNode;
+					}
+				} else {
+					if (temp.rightNode == null) {
+						System.out.println("right node inserted");
+						temp.rightNode = newNode;
+						break;
+					} else {
+						temp = temp.rightNode;
+					}
+				}
+			}
+		}
 	}
 
-	
-	/**
-	 * 
-	 */
-	public void display() {
-
-	}
-
-	
 	/**
 	 * 
 	 * @param node
@@ -48,19 +83,36 @@ public class BinarySearchTree {
 
 	}
 
-	
 	/**
 	 * 
-	 * @param node
-	 * @return
+	 * The tree is parsed from root. The value of the current node is compared
+	 * to the search value. if the value matches the current node the value is
+	 * found and the loop breaks. else the search value is compared to the
+	 * current node in the tree. if the value is less than the node value. The
+	 * tree is parsed left. else the tree is parsed right. The function returns
+	 * false if the value is not found. 
+	 * 
+	 * @param value
+	 *            - value of the tree that is searched.
+	 * @return true if the value is found
 	 */
-	public boolean search(Node node) {
+	public boolean search(int value) {
+		boolean result=false;
+		Node temp=root;
+		while (temp != null) {
+			
+			
+		}
 
-		return false;
+		return result;
 	}
 
 	public static void main(String[] args) {
-		BinarySearchTree obj=new BinarySearchTree();
+		BinarySearchTree obj = new BinarySearchTree();
+		obj.insert(10);
+		obj.insert(7);
+		obj.insert(11);
+		obj.insert(4);
+		obj.insert(33);
 	}
-
 }
