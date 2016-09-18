@@ -77,9 +77,9 @@ public class BinarySearchTree {
 
 	/**
 	 * 
-	 * @param node
+	 * @param deleteValue- value of the node you want to delete. 
 	 */
-	public void delete(Node node) {
+	public void delete(int deleteValue) {
 
 	}
 
@@ -90,18 +90,27 @@ public class BinarySearchTree {
 	 * found and the loop breaks. else the search value is compared to the
 	 * current node in the tree. if the value is less than the node value. The
 	 * tree is parsed left. else the tree is parsed right. The function returns
-	 * false if the value is not found. 
+	 * false if the value is not found.
 	 * 
 	 * @param value
 	 *            - value of the tree that is searched.
 	 * @return true if the value is found
 	 */
-	public boolean search(int value) {
-		boolean result=false;
-		Node temp=root;
+	public boolean search(int searchValue) {
+		boolean result = false;
+		Node temp = root;
 		while (temp != null) {
-			
-			
+			if (temp.value == searchValue) {
+				result = true;
+				break;
+			} else {
+				if (searchValue < temp.value) {
+					temp = temp.leftNode;
+				} else {
+					temp = temp.rightNode;
+				}
+			}
+
 		}
 
 		return result;
@@ -114,5 +123,12 @@ public class BinarySearchTree {
 		obj.insert(11);
 		obj.insert(4);
 		obj.insert(33);
+		int searchValue=11;
+		System.out.println("Search operation performed on "+searchValue);
+		if(obj.search(searchValue)){
+			System.out.println(searchValue+" is found");
+		}else{
+			System.out.println(searchValue+"is not found");
+		}
 	}
 }
