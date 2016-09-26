@@ -82,6 +82,14 @@ public class BinarySearchTree {
 	public void delete(int deleteValue) {
 
 	}
+	
+	public Node findMin(Node node){
+		Node temp=node;
+		while(temp.leftNode!=null){
+			temp=temp.leftNode;
+		}
+		return temp;
+	}
 
 	/**
 	 * 
