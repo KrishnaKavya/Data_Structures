@@ -76,15 +76,42 @@ public class BinarySearchTree {
 	}
 
 	/**
-	 * The delete method is implemented in 
-	 * 1. if the node to be deleted is a leaf node
-	 * 2. If the node has one child node.
-	 * 3. if the node has two child nodes. 
+	 * The delete method is implemented in 1. if the node to be deleted is a
+	 * leaf node 2. If the node has one child node. 3. if the node has two child
+	 * nodes.
+	 * 
 	 * @param deleteValue
 	 *            - value of the node you want to delete.
 	 */
-	public void delete(int deleteValue) {
-
+	public Node delete(int deleteValue, Node temp) {
+		if (temp == null)
+			return temp;
+		else if (deleteValue < temp.value)
+			temp.leftNode = delete(deleteValue, temp.leftNode);
+		else if (deleteValue > temp.value)
+			temp.rightNode = delete(deleteValue, temp.rightNode);
+		else {
+			// case1:No Child node
+			if (temp.leftNode == null && temp.rightNode == null) {
+				temp = null;
+			}
+			// case2: Only left child is null
+			else if (temp.leftNode == null) {
+				temp = temp.rightNode;
+			}
+			//case2:Only right child null
+			else if (temp.rightNode == null) {
+				temp = temp.leftNode;
+			}
+			//case 3: 2 child nodes
+			else{
+				Node min=findMin(temp.rightNode);
+				temp.value=min.value;
+				temp.rightNode=delete(temp.value,temp.rightNode);
+				
+			}
+		}
+		return temp;
 	}
 
 	/**
