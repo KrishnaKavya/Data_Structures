@@ -76,17 +76,30 @@ public class BinarySearchTree {
 	}
 
 	/**
-	 * 
-	 * @param deleteValue- value of the node you want to delete. 
+	 * The delete method is implemented in 
+	 * 1. if the node to be deleted is a leaf node
+	 * 2. If the node has one child node.
+	 * 3. if the node has two child nodes. 
+	 * @param deleteValue
+	 *            - value of the node you want to delete.
 	 */
 	public void delete(int deleteValue) {
 
 	}
-	
-	public Node findMin(Node node){
-		Node temp=node;
-		while(temp.leftNode!=null){
-			temp=temp.leftNode;
+
+	/**
+	 * find min method finds the least value in
+	 * 
+	 * @param node
+	 *            - gets the right subtree of the node to be deleted as a
+	 *            parameter.
+	 * @return- left most node in the right subtree i.e, the minimum value in
+	 *          the right subtree.
+	 */
+	public Node findMin(Node node) {
+		Node temp = node;
+		while (temp.leftNode != null) {
+			temp = temp.leftNode;
 		}
 		return temp;
 	}
@@ -131,12 +144,12 @@ public class BinarySearchTree {
 		obj.insert(11);
 		obj.insert(4);
 		obj.insert(33);
-		int searchValue=11;
-		System.out.println("Search operation performed on "+searchValue);
-		if(obj.search(searchValue)){
-			System.out.println(searchValue+" is found");
-		}else{
-			System.out.println(searchValue+"is not found");
+		int searchValue = 11;
+		System.out.println("Search operation performed on " + searchValue);
+		if (obj.search(searchValue)) {
+			System.out.println(searchValue + " is found");
+		} else {
+			System.out.println(searchValue + "is not found");
 		}
 	}
 }
