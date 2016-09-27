@@ -76,9 +76,28 @@ public class BinarySearchTree {
 	}
 
 	/**
-	 * The delete method is implemented in 1. if the node to be deleted is a
-	 * leaf node 2. If the node has one child node. 3. if the node has two child
-	 * nodes.
+	 * To delete a node in the binary search tree, we start by finding the
+	 * node that is to be deleted. The parsing starts at the root node if the
+	 * deleteValue is less than the current node. we parse to the left subtree
+	 * and when the delete Value is greater than the current node we parse to
+	 * the right node. We reach the node to be deleted. Then there are 3 cases
+	 * for deleting a node.
+	 * 
+	 * 1. if the node to be deleted is a leaf node When the node to be deleted
+	 * is a leaf node. we name the node null. ( That is when the parent tries to
+	 * access the child node it returns null) 
+	 * 
+	 * 2. If the node has one child node.
+	 * 2.1 If the node has left child. make the left child the current node. 2.2
+	 * If the node has a right child. Make the right child the current node.
+	 * 
+	 * 3. if the node has two child nodes. 3.1 We can either find highest
+	 * element in the left subtree or least value in the right subtree. In this
+	 * method we find the min of right subtree. 3.2 Assign the minimum value to
+	 * the node to be deleted. 3.3 call the delete method giving the parameters
+	 * of right subtree of the replaced node and the min value node. This
+	 * function call reduces to the leaf node condition and the node is further
+	 * deleted.
 	 * 
 	 * @param deleteValue
 	 *            - value of the node you want to delete.
@@ -99,16 +118,16 @@ public class BinarySearchTree {
 			else if (temp.leftNode == null) {
 				temp = temp.rightNode;
 			}
-			//case2:Only right child null
+			// case2:Only right child null
 			else if (temp.rightNode == null) {
 				temp = temp.leftNode;
 			}
-			//case 3: 2 child nodes
-			else{
-				Node min=findMin(temp.rightNode);
-				temp.value=min.value;
-				temp.rightNode=delete(temp.value,temp.rightNode);
-				
+			// case 3: 2 child nodes
+			else {
+				Node min = findMin(temp.rightNode);
+				temp.value = min.value;
+				temp.rightNode = delete(min.value, temp.rightNode);
+
 			}
 		}
 		return temp;
@@ -171,12 +190,15 @@ public class BinarySearchTree {
 		obj.insert(11);
 		obj.insert(4);
 		obj.insert(33);
-		int searchValue = 11;
+		obj.delete(4, obj.root);
+		int searchValue = 4;
 		System.out.println("Search operation performed on " + searchValue);
 		if (obj.search(searchValue)) {
 			System.out.println(searchValue + " is found");
 		} else {
 			System.out.println(searchValue + "is not found");
 		}
+		
+		
 	}
 }
