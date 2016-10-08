@@ -1,9 +1,13 @@
 
 public class BreadthFirstSearch {
-
+	
+	public void readFile(){
+		
+	}
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		BreadthFirstSearch obj=new BreadthFirstSearch();
+		obj.readFile();
 	}
 
 }
