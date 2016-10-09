@@ -96,8 +96,9 @@ public class BreadthFirstSearch {
 		BreadthFirstSearch obj = new BreadthFirstSearch();
 		Scanner sc = null;
 		/*
-		 * Taking the file name as an argument from the command line or can input the values. The scanner has the values from the input file.
-		 * (Files/input.txt). 
+		 * Taking the file name as an argument from the command line or can
+		 * input the values. The scanner has the values from the input file.
+		 * (Files/input.txt).
 		 */
 		File input = args.length > 0 ? new File(args[0]) : null;
 		if (input != null && input.exists()) {
@@ -113,11 +114,11 @@ public class BreadthFirstSearch {
 		 */
 		Graph graphObject = Graph.readGraph(sc, true);
 		/*
-		 * Method breadthFirstSearch returns list of vertices in bfs order. 
+		 * Method breadthFirstSearch returns list of vertices in bfs order.
 		 */
 		List<Vertex> bfs = obj.breadthFirstSearch(graphObject);
 		/*
-		 * Displaying the summary of BFS. 
+		 * Displaying the summary of BFS.
 		 */
 		System.out.println("Summary of Breadth First Search");
 		for (Vertex vertex : bfs) {
