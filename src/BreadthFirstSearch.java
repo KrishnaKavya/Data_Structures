@@ -14,13 +14,58 @@ import java.util.Scanner;
  *         its child nodes. BFS traverses through one level of nodes in a graph
  *         or a tree.
  * 
+ *         Classes: Graph, Vertex, Edge.
+ * 
  */
-public class BreadthFirstSearch {
 
+public class BreadthFirstSearch {
+	/**
+	 * 
+	 * The method breadthFirstSearch takes the graph as an object and returns
+	 * the list of vertices in the format of bfs. Queue data structure is used
+	 * to implement BFS for a graph/tree.
+	 * 
+	 * Initialization:
+	 * 
+	 * (Set in the Vertex class) The vertices are fetched to the list. Every
+	 * vertex is initialized with: Parent: null distance from the root or start
+	 * vertex: 0. seen(visited): false
+	 * 
+	 * Implementation:
+	 * 
+	 * The first or the start vertex is added to the queue. The distance from
+	 * the start to start is zero, we set is as seen and add to the queue. BFS
+	 * is achieved by fetching all the nodes level by level. In order to achieve
+	 * that, we add all the nodes at a single level to the queue and process the
+	 * whole graph by fetching one vertex from the queue and repeating the above
+	 * again ,till we process all the vertices.
+	 * 
+	 * 
+	 * @param graphObject
+	 * @return
+	 */
 	public List<Vertex> breadthFirstSearch(Graph graphObject) {
 		List<Vertex> vertices = graphObject.verts;
+		// The queue of type vertex is initialized.
 		Deque<Vertex> queue = new ArrayDeque<Vertex>();
-		List<Vertex> result=new ArrayList<Vertex>();
+		// The list of vertices is initialized to store the result of BFS
+		List<Vertex> result = new ArrayList<Vertex>();
+		/*
+		 * The start vertex is fetched and is added to the queue. The vertex is
+		 * marked as visited and distance from the root is set to 0.
+		 * 
+		 * The standard distance from the root to any vertex in the graph is run
+		 * with the counter d. The distance is updated to d+1 when processing
+		 * every level of nodes. for level 1 (d=d+1=0+1=1) level2(d=d+1=1+1=2).
+		 * 
+		 * The queue processes all the vertices, Hence, while queue!=null,
+		 * dequeue the vertex from the queue, set seen,distance. Add the current
+		 * vetex to the result as it finished processing. for all the child
+		 * nodes or the next nodes in the graph. For each vertex on the other
+		 * end or the next level, if the vertex is not already seen, we process
+		 * the vertex(seen, distance and parent).(Parent to the other end nodes
+		 * is the current node) and add it to the queue.
+		 */
 		Vertex start = vertices.get(1);
 		start.seen = true;
 		start.distance = 0;
@@ -51,7 +96,8 @@ public class BreadthFirstSearch {
 		BreadthFirstSearch obj = new BreadthFirstSearch();
 		Scanner sc = null;
 		/*
-		 * The input is taken in the form of input and
+		 * Taking the file name as an argument from the command line or can input the values. The scanner has the values from the input file.
+		 * (Files/input.txt). 
 		 */
 		File input = args.length > 0 ? new File(args[0]) : null;
 		if (input != null && input.exists()) {
@@ -66,10 +112,18 @@ public class BreadthFirstSearch {
 		 * nodes) true- The graph is a directed one.
 		 */
 		Graph graphObject = Graph.readGraph(sc, true);
-		List<Vertex> bfs=obj.breadthFirstSearch(graphObject);
+		/*
+		 * Method breadthFirstSearch returns list of vertices in bfs order. 
+		 */
+		List<Vertex> bfs = obj.breadthFirstSearch(graphObject);
+		/*
+		 * Displaying the summary of BFS. 
+		 */
 		System.out.println("Summary of Breadth First Search");
-		for(Vertex vertex: bfs){
-			System.out.println("Vertex Name: "+vertex.name+" Vertex Parent: "+vertex.parent+" Distace from the root: "+vertex.distance);
+		for (Vertex vertex : bfs) {
+			System.out.println("Vertex Name: " + vertex.name
+					+ " Vertex Parent: " + vertex.parent
+					+ " Distace from the root: " + vertex.distance);
 		}
 		// closing scanner.
 		sc.close();
