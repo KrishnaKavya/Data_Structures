@@ -25,6 +25,7 @@ public class Vertex {
 	parent = null;
 	Adj = new ArrayList<Edge>();
 	revAdj = new ArrayList<Edge>();   /* only for directed graphs */
+	distance=-0;
     }
 
     /**
