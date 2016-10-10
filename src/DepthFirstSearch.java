@@ -74,13 +74,14 @@ public class DepthFirstSearch {
 			// Fetch the top vertex from the stack.
 			Vertex v = stack.pop();
 			// adding to the output
-			System.out.println(v.name + " ");
+			System.out.println("Vertex Name: "+v.name + " Vertex Parent: "+v.parent);
 			List<Edge> edge = v.Adj;
 			for (Edge e : edge) {
 				Vertex otherEnd = e.otherEnd(v);
 				if (visited.contains(otherEnd)) {
 					continue;
 				} else {
+					otherEnd.parent=v;
 					dfsUtil(otherEnd, stack, visited);
 				}
 			}
