@@ -1,5 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,6 +13,23 @@ import java.util.Scanner;
 public class DepthFirstSearch {
 	
 	public List<Vertex> depthFirstSearch(Graph graphObject){
+		Deque<Vertex> stack=new ArrayDeque<Vertex>();
+		List<Vertex> result=new ArrayList<Vertex>();
+		List<Vertex> vertices=graphObject.verts;
+		Vertex start=vertices.get(1);
+		start.seen=true;
+		result.add(start);
+		stack.push(start);
+		stack.push(vertices.get(2));
+		while(!stack.isEmpty()){
+			Vertex current=stack.getFirst();
+			List<Edge> adj=current.Adj;
+			for(Edge e:adj){
+				//Vertex
+			}
+			
+		}
+		
 		
 		return null;
 	}
