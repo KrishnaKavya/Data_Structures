@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -7,13 +9,26 @@ import java.util.Scanner;
  *         unique characters in the String given.
  */
 public class UniqueCharactersInString {
-	
+	/**
+	 * Approach 1: 
+	 * @param string
+	 * @return
+	 */
 	public boolean validate(String string){
 		if(string==null){
 			return false;
 		}
+		List <Character> list=new ArrayList<Character>();
+		char[] charArray=string.toCharArray();
+		for(int i=0;i<charArray.length;i++){
+			if(list.contains(charArray[i])){
+				return false;
+			}else{
+				list.add(charArray[i]);
+			}
+		}
 		
-	return false;
+	return true;
 	}
 
 	public static void main(String[] args) {
