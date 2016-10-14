@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -19,7 +20,11 @@ public class PermutationOfString {
 			}
 		}
 		
-		
+		/*Iterator itr=countMap.entrySet().iterator();
+		while(itr.hasNext()){
+			pair=(countMap)itr.next();
+		}
+		*/
 		
 	}
 
