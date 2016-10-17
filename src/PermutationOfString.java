@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -7,6 +9,10 @@ import java.util.TreeMap;
  * 
  */
 public class PermutationOfString {
+	
+	private List<String> result=new ArrayList<String>();
+	
+	
 	/**
 	 * The permute method calculates the the permutations possible for a given
 	 * input string.
@@ -52,7 +58,7 @@ public class PermutationOfString {
 
 	public void permuteUtil(char[] str, int[] count, char[] result, int level) {
 		if(level==result.length){
-			printArray(result);
+			addResult(result);
 			return;
 		}
 		
@@ -69,14 +75,31 @@ public class PermutationOfString {
 		
 	}
 
-	private void printArray(char[] result) {
-		// TODO Auto-generated method stub
+	public void addResult(char[] res) {
+		String r=new String(res);
+		this.result.add(r);
 		
+	}
+	
+	public boolean isPermmutation(String input){
+		if(result.contains(input)){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	public static void main(String[] args) {
 		PermutationOfString obj = new PermutationOfString();
 		obj.permute("adb");
+		String str="adb";
+		
+		if(obj.isPermmutation("adb")){
+			System.out.println("the input string is a permutation of"+str);
+		}else{
+			System.out.println("is not");
+		}
+		
 
 	}
 
