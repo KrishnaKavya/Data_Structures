@@ -19,9 +19,8 @@ public class PermutationOfString {
 	 * 
 	 * 
 	 * 
-	 * 
-	 * 
 	 * @param inputString
+	 *            - input String to find the permutations.
 	 */
 	public void permute(String inputString) {
 		char[] input = inputString.toCharArray();
@@ -34,12 +33,47 @@ public class PermutationOfString {
 			}
 		}
 
+		// Initializing the array of characters and count of each character.
+		char str[] = new char[countMap.size()];
+		int count[] = new int[countMap.size()];
+		int index=0;
+		//assigning the values to the array. 
 		for (Map.Entry<Character, Integer> entry : countMap.entrySet()) {
-			System.out.println(entry.getKey() + " " + entry.getValue());
+			str[index]=entry.getKey();
+			count[index]=entry.getValue();
 		}
+		//Initializing result array.The length of the result permutation is equal to the input
+		char result[]=new char[input.length];
+		permuteUtil(str,count,result,0);
+		
+		
 
 	}
-s
+
+	public void permuteUtil(char[] str, int[] count, char[] result, int level) {
+		if(level==result.length){
+			printArray(result);
+			return;
+		}
+		
+		for(int i=0;i<str.length;i++){
+			//The character's count is 0.
+			if(count[i]==0){
+				continue;
+			}
+			result[level]=str[i];
+			count[i]--;
+			permuteUtil(str,count,result,level+1);
+			count[i]++;
+		}
+		
+	}
+
+	private void printArray(char[] result) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public static void main(String[] args) {
 		PermutationOfString obj = new PermutationOfString();
 		obj.permute("adb");
