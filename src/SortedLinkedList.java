@@ -75,7 +75,7 @@ public class SortedLinkedList {
 				before = after;
 				after = after.next;
 			}
-			newNode.next = before.next;
+			newNode.next = before.next; // newnode. next= after(before.next)
 			before.next = newNode;
 		}
 	}
@@ -90,7 +90,10 @@ public class SortedLinkedList {
 		}
 
 	}
-
+	/**
+	 * Method to check if the linked List is empty. 
+	 * @return
+	 */
 	public boolean isEmpty() {
 		if (head == null) {
 			return true;
@@ -148,12 +151,11 @@ public class SortedLinkedList {
 	}
 
 	/**
-	 * The checkInteger method is to check the user enters valid input when a
-	 * value is pushed into stack.
+	 * The checkInteger method is to check the user enters valid input.
 	 * 
 	 * The parameter is taken as a string. for the given input the loop checks
 	 * if all the characters in the parameter are digits. the value is
-	 * calculated when the given parameter doesnot have any characters . else it
+	 * calculated when the given parameter does not have any characters . else it
 	 * returns -1.
 	 * 
 	 * @param next
@@ -174,7 +176,9 @@ public class SortedLinkedList {
 
 		return result;
 	}
-
+	/**
+	 * Method to reverse a linked List. 
+	 */
 	public void reverse() {
 		if(isEmpty()){
 			System.out.println(" The Linked List is Empty. ");
