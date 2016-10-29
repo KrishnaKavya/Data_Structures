@@ -18,7 +18,7 @@ public class ZeroMatrix {
 	 * 
 	 * 
 	 * 2. Parse through the matrix and set boolean arrays to true when 0 is
-	 * found.(The elements atre marked first as direct manipulation will change
+	 * found.(The elements are marked first as direct manipulation will change
 	 * the elements in the main array. and that might lead to a 0 matrix.)
 	 * 
 	 * 3. parse through the matrix and if the column or row of the index(boolean

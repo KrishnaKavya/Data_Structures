@@ -248,9 +248,9 @@ public class SortedLinkedList {
 
 			case "3":
 				if (obj.isEmpty()) {
-					System.out.println("Queue is empty");
+					System.out.println("Linked List is empty");
 				} else {
-					System.out.println("Queue is not empty");
+					System.out.println("Linked List is not empty");
 				}
 				break;
 			case "5":
