@@ -157,6 +157,5 @@ public class RemoveDuplicateLL {
 		System.out
 				.println("Linked List after removing duplicate using runner technique");
 		obj.display();
-
 	}
 }
