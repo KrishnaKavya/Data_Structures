@@ -9,6 +9,10 @@
  */
 public class KthLastElementLL {
 	public Node head;
+	int[] _1={1,2};
+	int[] _2={3,4};
+	int[] _3={3,4};
+	int [][] n={_1, _2,_3};
 
 	private class Node {
 
