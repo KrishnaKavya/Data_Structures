@@ -76,8 +76,8 @@ public class BinarySearchTree {
 	}
 
 	/**
-	 * To delete a node in the binary search tree, we start by finding the
-	 * node that is to be deleted. The parsing starts at the root node if the
+	 * To delete a node in the binary search tree, we start by finding the node
+	 * that is to be deleted. The parsing starts at the root node if the
 	 * deleteValue is less than the current node. we parse to the left subtree
 	 * and when the delete Value is greater than the current node we parse to
 	 * the right node. We reach the node to be deleted. Then there are 3 cases
@@ -85,11 +85,11 @@ public class BinarySearchTree {
 	 * 
 	 * 1. if the node to be deleted is a leaf node When the node to be deleted
 	 * is a leaf node. we name the node null. ( That is when the parent tries to
-	 * access the child node it returns null) 
+	 * access the child node it returns null)
 	 * 
-	 * 2. If the node has one child node.
-	 * 2.1 If the node has left child. make the left child the current node. 2.2
-	 * If the node has a right child. Make the right child the current node.
+	 * 2. If the node has one child node. 2.1 If the node has left child. make
+	 * the left child the current node. 2.2 If the node has a right child. Make
+	 * the right child the current node.
 	 * 
 	 * 3. if the node has two child nodes. 3.1 We can either find highest
 	 * element in the left subtree or least value in the right subtree. In this
@@ -183,14 +183,60 @@ public class BinarySearchTree {
 		return result;
 	}
 
+	/**
+	 * The method implements the inorder traversal of BST
+	 * 
+	 * @param node
+	 *            - root of the tree
+	 */
+	public void inOrder(Node node) {
+		if (node == null) {
+			return;
+		}
+		inOrder(node.leftNode);
+		System.out.print(node.value + " ");
+		inOrder(node.rightNode);
+	}
+
+	/**
+	 * The method implements the pre order traversal of BST
+	 * 
+	 * @param node
+	 *            - root of the tree
+	 */
+	public void preOrder(Node node) {
+		if (node == null) {
+			return;
+		}
+		System.out.print(node.value + " ");
+		preOrder(node.leftNode);
+		preOrder(node.rightNode);
+
+	}
+
+	/**
+	 * The method implements the post order traversal of BST
+	 * 
+	 * @param node
+	 *            - root of the tree
+	 */
+	public void postOrder(Node node) {
+		if (node == null) {
+			return;
+		}
+		postOrder(node.leftNode);
+		postOrder(node.rightNode);
+		System.out.print(node.value + " ");
+	}
+
 	public static void main(String[] args) {
 		BinarySearchTree obj = new BinarySearchTree();
 		obj.insert(10);
 		obj.insert(7);
+		obj.insert(14);
 		obj.insert(11);
-		obj.insert(4);
 		obj.insert(33);
-		obj.delete(4, obj.root);
+		// obj.delete(4, obj.root);
 		int searchValue = 4;
 		System.out.println("Search operation performed on " + searchValue);
 		if (obj.search(searchValue)) {
@@ -198,7 +244,17 @@ public class BinarySearchTree {
 		} else {
 			System.out.println(searchValue + "is not found");
 		}
-		
-		
+
+		System.out.println("Inorder traversal");
+		obj.inOrder(obj.root);
+
+		System.out.println();
+		System.out.println("PreOrder Traversal");
+		obj.preOrder(obj.root);
+
+		System.out.println();
+		System.out.println("Post Order Traversal");
+		obj.postOrder(obj.root);
+
 	}
 }
