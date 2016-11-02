@@ -4,6 +4,12 @@ import java.util.Deque;
 /**
  * 
  * @author M Krishna Kavya
+ * 
+ *         The class implements a method two sort a stack using one buffer
+ *         stack. This is done without using any other data structure. using the
+ *         functions of stack. push, pop,peek.
+ * 
+ * 			 
  *
  */
 public class SortStack {
