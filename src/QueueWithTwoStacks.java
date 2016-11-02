@@ -13,8 +13,10 @@ import java.util.Deque;
  *         reverse stack and pop the top most element. This pops the first
  *         element inserted. The shift stack method optimizes the reverse
  *         process. Reverse operation need not be performed for every insert, to
- *         optimize the operation, we perform the shift stacks only when pop or peek operation is called. 
+ *         optimize the operation, we perform the shift stacks only when pop or
+ *         peek operation is called.
  * 
+ *      
  *
  */
 public class QueueWithTwoStacks {
@@ -32,20 +34,22 @@ public class QueueWithTwoStacks {
 	public int size() {
 		return originalStack.size() + reverseStack.size();
 	}
-	
+
 	/**
-	 * Add element into a queue.
-	 * To perform this operation we add element to original stack. 
+	 * Add element into a queue. To perform this operation we add element to
+	 * original stack.
+	 * 
 	 * @param value
 	 */
 	public void push(int value) {
 		originalStack.add(value);
 	}
+
 	/**
-	 * The method handles the reversal of the stack.
-	 * The reverse of the stack is only performed when the reverse stack is empty.
-	 * All the elements of the original stack are added to reverse stack. 
-	 * The reverse stack now follows FIFO  
+	 * The method handles the reversal of the stack. The reverse of the stack is
+	 * only performed when the reverse stack is empty. All the elements of the
+	 * original stack are added to reverse stack. The reverse stack now follows
+	 * FIFO
 	 */
 	private void shiftStacks() {
 		if (reverseStack.isEmpty()) {
@@ -54,17 +58,22 @@ public class QueueWithTwoStacks {
 			}
 		}
 	}
-	
+
 	/**
-	 * to perform the pop operation, shift stacks is performed first and the top of reverseStack is eliminated. 
+	 * to perform the pop operation, shift stacks is performed first and the top
+	 * of reverseStack is eliminated.
+	 * 
 	 * @return
 	 */
 	public int pop() {
 		shiftStacks();
 		return reverseStack.pop();
 	}
+
 	/**
-	 * to perform the peek operation, shift stacks is performed first and the top of reverseStack is eliminated.
+	 * to perform the peek operation, shift stacks is performed first and the
+	 * top of reverseStack is eliminated.
+	 * 
 	 * @return
 	 */
 	public int peek() {
