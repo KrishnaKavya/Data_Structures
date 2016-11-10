@@ -34,6 +34,13 @@ public class BinaryTree {
 	 * The method to insert a node in the tree. The insert method with called
 	 * with the parameters of root node and the new data.
 	 * 
+	 * 						0
+	 *					/	   \
+	 *					2		1
+	 *				  /  \	  
+	 *				4    3
+	 *             / \
+	 *             6  5
 	 * @param data
 	 */
 	public void insert(int data) {
@@ -105,12 +112,62 @@ public class BinaryTree {
 		calculateChildNode(node.rightNode);
 	}
 
+	/**
+	 * The function get height calculates the height of the node. The definition
+	 * of height of the node is given as the difference of height of left
+	 * subtree and the height of right subtree should not be greater than 1.
+	 * 
+	 * In this implementation, the recursive call continues till the leaf node.
+	 * where there are null values. and the max of (0,0) +1 gives 1 as the
+	 * height of the leaf nodes. parsing upward through recursion, the height
+	 * increases by 1 for every level.
+	 * 
+	 * @param node
+	 * @return
+	 */
+	public int getHeight(Node node) {
+		if (node == null) {
+			return 0;
+		} else {
+			return Math
+					.max(getHeight(node.leftNode), getHeight(node.rightNode)) + 1;
+		}
+	}
+
+	/**
+	 * The function check balance returns true when the tree is balanced 
+	 * and false for an imbalanced tree. 
+	 * 
+	 * The nodes in the insert method generates and imbalanced Tree. 
+	 * The balace is checked by finding the difference of the left and 
+	 * right nodes. if the difference is greater than 1, then returns 
+	 * false which implies the tree is not balanced.
+	 * Else, continues to parse through all the nodes in the tree and 
+	 * returns true if non of the nodes return false.
+	 * @param node
+	 * @return
+	 */
+	public boolean checkBalance(Node node) {
+		if (node == null) {
+			return true;
+		} else {
+			int check = getHeight(node.leftNode) - getHeight(node.rightNode);
+			if (Math.abs(check) > 1) {
+				return false;
+			} else {
+				return checkBalance(node.leftNode)
+						&& checkBalance(node.rightNode);
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		BinaryTree obj = new BinaryTree();
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 6; i++)
 			obj.insert(i);
 		obj.calculateChildNode(obj.root);
 		obj.inOrder(obj.root);
+		System.out.println(obj.checkBalance(obj.root));
 	}
 
 }
