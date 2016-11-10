@@ -2,33 +2,61 @@
  * 
  * @author M Krishna Kavya
  * 
+ *         The class implements the Binary tree.
+ * 
  * 
  */
 public class BinaryTree {
 
 	public Node root;
 
+	/**
+	 * 
+	 * @author M Krishna Kavya Class that represents a node in a tree.
+	 */
 	public class Node {
 
 		private int value;
 		private Node leftNode;
 		private Node rightNode;
-		private int balanceFactor;
+		private int children;
 
 		public Node(int value, Node leftNode, Node rightNode, int height) {
 			super();
 			this.value = value;
 			this.leftNode = leftNode;
 			this.rightNode = rightNode;
-			this.balanceFactor = height;
+			this.children = height;
 		}
 	}
 
+	/**
+	 * The method to insert a node in the tree. The insert method with called
+	 * with the parameters of root node and the new data.
+	 * 
+	 * @param data
+	 */
 	public void insert(int data) {
 		root = insert(root, data);
 	}
 
-	public Node insert(Node node, int value) {
+	/**
+	 * The method inserts a node to the binary tree. The recursive function is
+	 * called, if a node is null, we have reached an null node, where we insert
+	 * the new node. in the right child is null, the recursive function call is
+	 * made with the the right child. In the recursive call the current node is
+	 * null. Hence, new node is inserted in the right position. if right is not
+	 * null, a similar method is performed and a node is inserted to the left
+	 * node.
+	 * 
+	 * The root node is returned by the function at the end of recursion.
+	 * 
+	 * 
+	 * @param node
+	 * @param value
+	 * @return
+	 */
+	private Node insert(Node node, int value) {
 
 		if (node == null) {
 			node = new Node(value, null, null, 0);
@@ -42,40 +70,46 @@ public class BinaryTree {
 		return node;
 	}
 
+	/**
+	 * In order traversal of Binary Tree.
+	 * 
+	 * @param node
+	 */
 	public void inOrder(Node node) {
 		if (node == null) {
 			return;
 		}
 		inOrder(node.leftNode);
-		System.out.println("\n \t " + node.value + " " + node.balanceFactor);
+		System.out.println(" " + node.value + " " + node.children);
 		inOrder(node.rightNode);
 	}
 
-	public void calculateBalanceFactor(Node node) {
+	/**
+	 * The Method calculates the number of child nodes for every node in Binary
+	 * tree.
+	 * 
+	 * @param node
+	 */
+	public void calculateChildNode(Node node) {
 		if (node == null) {
 			return;
 		}
-		calculateBalanceFactor(node.leftNode);
+		calculateChildNode(node.leftNode);
 		if (node.leftNode == null && node.rightNode == null) {
-			node.balanceFactor = 0;
+			node.children = 0;
 		} else if (node.leftNode != null && node.rightNode != null) {
-			node.balanceFactor = 2;
+			node.children = 2;
 		} else {
-			node.balanceFactor = 1;
+			node.children = 1;
 		}
-		calculateBalanceFactor(node.rightNode);
+		calculateChildNode(node.rightNode);
 	}
-
-	
 
 	public static void main(String[] args) {
 		BinaryTree obj = new BinaryTree();
-		obj.insert(0);
-		obj.insert(2);
-		obj.insert(3);
-		obj.insert(4);
-		obj.insert(5);
-		obj.calculateBalanceFactor(obj.root);
+		for (int i = 0; i < 10; i++)
+			obj.insert(i);
+		obj.calculateChildNode(obj.root);
 		obj.inOrder(obj.root);
 	}
 
