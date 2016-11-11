@@ -34,13 +34,8 @@ public class BinaryTree {
 	 * The method to insert a node in the tree. The insert method with called
 	 * with the parameters of root node and the new data.
 	 * 
-	 * 						0
-	 *					/	   \
-	 *					2		1
-	 *				  /  \	  
-	 *				4    3
-	 *             / \
-	 *             6  5
+	 * 0 / \ 2 1 / \ 4 3 / \ 6 5
+	 * 
 	 * @param data
 	 */
 	public void insert(int data) {
@@ -135,15 +130,15 @@ public class BinaryTree {
 	}
 
 	/**
-	 * The function check balance returns true when the tree is balanced 
-	 * and false for an imbalanced tree. 
+	 * The function check balance returns true when the tree is balanced and
+	 * false for an unbalanced tree.
 	 * 
-	 * The nodes in the insert method generates and imbalanced Tree. 
-	 * The balace is checked by finding the difference of the left and 
-	 * right nodes. if the difference is greater than 1, then returns 
-	 * false which implies the tree is not balanced.
-	 * Else, continues to parse through all the nodes in the tree and 
-	 * returns true if non of the nodes return false.
+	 * The nodes in the insert method generates and imbalanced Tree. The balace
+	 * is checked by finding the difference of the left and right nodes. if the
+	 * difference is greater than 1, then returns false which implies the tree
+	 * is not balanced. Else, continues to parse through all the nodes in the
+	 * tree and returns true if non of the nodes return false.
+	 * 
 	 * @param node
 	 * @return
 	 */
@@ -161,13 +156,38 @@ public class BinaryTree {
 		}
 	}
 
+	/**
+	 * 
+	 * The method checks if the Binary tree is a Binary search tree. 
+	 * The condition if a left node is less than the node and the right 
+	 * subtree is greater than the node is checked. Recursive call is 
+	 * made of the left and right nodes. its repeated till the left and
+	 * right child nodes are not empty. 
+	 * @param node
+	 * @return
+	 */
+	public boolean isBinarySearchTree(Node node) {
+		if (node.leftNode == null && node.rightNode == null) {
+			return true;
+		}
+		if (!(node.leftNode.value < node.value && node.rightNode.value > node.value)) {
+			return false;
+		}
+		return isBinarySearchTree(node.leftNode)
+				&& isBinarySearchTree(node.rightNode);
+	}
+
 	public static void main(String[] args) {
 		BinaryTree obj = new BinaryTree();
-		for (int i = 0; i < 6; i++)
-			obj.insert(i);
+		obj.insert(7);
+		obj.insert(20);
+		obj.insert(5);
+		obj.insert(6);
+		obj.insert(25);
 		obj.calculateChildNode(obj.root);
 		obj.inOrder(obj.root);
 		System.out.println(obj.checkBalance(obj.root));
+		System.out.println(obj.isBinarySearchTree(obj.root));
 	}
 
 }
