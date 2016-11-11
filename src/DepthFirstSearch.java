@@ -74,14 +74,15 @@ public class DepthFirstSearch {
 			// Fetch the top vertex from the stack.
 			Vertex v = stack.pop();
 			// adding to the output
-			System.out.println("Vertex Name: "+v.name + " Vertex Parent: "+v.parent);
+			System.out.println("Vertex Name: " + v.name + " Vertex Parent: "
+					+ v.parent);
 			List<Edge> edge = v.Adj;
 			for (Edge e : edge) {
 				Vertex otherEnd = e.otherEnd(v);
 				if (visited.contains(otherEnd)) {
 					continue;
 				} else {
-					otherEnd.parent=v;
+					otherEnd.parent = v;
 					dfsUtil(otherEnd, stack, visited);
 				}
 			}
@@ -104,7 +105,7 @@ public class DepthFirstSearch {
 					.println("Please enter dimensions of graph (#nodes,#edges) followed by edge followed by edges in format(left,right,weight)");
 			sc = new Scanner(System.in);
 		}
-
+		// true- represents a directed graph.
 		Graph graph = Graph.readGraph(sc, true);
 
 		dfs.depthFirstSearch(graph);
