@@ -106,11 +106,12 @@ public class DepthFirstSearch {
 			sc = new Scanner(System.in);
 		}
 		// true- represents a directed graph.
+		
+		
 		Graph graph = Graph.readGraph(sc, true);
 
 		dfs.depthFirstSearch(graph);
-
-		sc.close();
+		
 	}
 
 }
