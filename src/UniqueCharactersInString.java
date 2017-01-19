@@ -17,12 +17,11 @@ public class UniqueCharactersInString {
 	 * 
 	 * Implementation:
 	 * 
-	 * The A list of type Character is initialized. The input string to
-	 * converted to a character array. For each character in a string, we check
-	 * is the character is already in the Array List. If yes, A character is
-	 * already in the list. That is it is repeated. return false. else, we add
-	 * the character to the List. The above process is done for all the
-	 * characters in the string.
+	 * A list of type Character is initialized. The input string is converted to
+	 * a character array. For each character in a string, we check is the
+	 * character is already in the Array List. If yes, the character is repeated.
+	 * return false. else, we add the character to the List. The above process
+	 * is done for all the characters in the string.
 	 * 
 	 * If the loop is not broken that implies all the characters are processed
 	 * and there was no character being repeated. Hence, return false at the end
