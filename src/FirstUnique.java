@@ -1,10 +1,17 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Map.Entry;
 
+/**
+ * 
+ * Question: Find the first non repetitive character in the string.
+ * 
+ * 
+ * 
+ * @author M Krishna Kavya
+ *
+ */
 public class FirstUnique {
 
 	public String firstUnique(String params) {
