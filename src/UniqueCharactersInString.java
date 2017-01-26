@@ -71,16 +71,31 @@ public class UniqueCharactersInString {
 	public static void main(String[] args) {
 		UniqueCharactersInString obj = new UniqueCharactersInString();
 
+		Scanner sc = new Scanner(System.in);
+		System.out
+				.println("Please give an input string to validate if the string has unique characters");
+		boolean result = obj.validate(sc.next());
+		if (result) {
+			System.out.println("The String has unique characters");
+		} else {
+			System.out
+					.println("The input is empty/The String does not have unique characters");
+		}
+		
 		/*
-		 * Scanner sc = new Scanner(System.in); System.out .println(
-		 * "Please give an input string to validate if the string has unique characters"
-		 * ); boolean result = obj.validate(sc.next()); if (result) { System.
-		 * out.println("The String has unique characters"); } else { System.out
-		 * .
-		 * println("The input is empty/The String does not have unique characters"
-		 * ); } sc.close();
+		 * Method 2
 		 */
-		System.out.println(obj.isUnique("Kvya"));
+		System.out
+				.println("Please give input to check if all the characters are unique");
+		String input = sc.next();
+		if(obj.isUnique(input)){
+			System.out.println("The String has unique characters");
+		}else{
+			System.out
+			.println("Please give input to check if all the characters are unique");
+		}
+		
+		sc.close();
 	}
 
 }
