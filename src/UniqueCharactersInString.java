@@ -7,8 +7,11 @@ import java.util.Scanner;
  * 
  *         The class UniqueCharactersInString implements to check if there are
  *         unique characters in the String given.
+ * 
+ * 
  */
 public class UniqueCharactersInString {
+
 	/**
 	 * Approach 1
 	 * 
@@ -19,9 +22,9 @@ public class UniqueCharactersInString {
 	 * 
 	 * A list of type Character is initialized. The input string is converted to
 	 * a character array. For each character in a string, we check is the
-	 * character is already in the Array List. If yes, the character is repeated.
-	 * return false. else, we add the character to the List. The above process
-	 * is done for all the characters in the string.
+	 * character is already in the Array List. If yes, the character is
+	 * repeated. return false. else, we add the character to the List. The above
+	 * process is done for all the characters in the string.
 	 * 
 	 * If the loop is not broken that implies all the characters are processed
 	 * and there was no character being repeated. Hence, return false at the end
@@ -43,24 +46,41 @@ public class UniqueCharactersInString {
 				list.add(charArray[i]);
 			}
 		}
+		return true;
+	}
 
+	/**
+	 * 
+	 * @param string
+	 * @return
+	 */
+	public boolean isUnique(String string) {
+		int length = string.length();
+		char[] charArray = string.toCharArray();
+		boolean[] bool = new boolean[256];
+		for (int i = 0; i < length; i++) {
+			if (bool[charArray[i]] == true) {
+				return false;
+			} else {
+				bool[charArray[i]] = true;
+			}
+		}
 		return true;
 	}
 
 	public static void main(String[] args) {
 		UniqueCharactersInString obj = new UniqueCharactersInString();
-		Scanner sc = new Scanner(System.in);
-		System.out
-				.println("Please give an input string to validate if the string has unique characters");
-		boolean result = obj.validate(sc.next());
-		if (result) {
-			System.out.println("The String has unique characters");
-		} else {
-			System.out
-					.println("The input is empty/The String does not have unique characters");
-		}
 
-		sc.close();
+		/*
+		 * Scanner sc = new Scanner(System.in); System.out .println(
+		 * "Please give an input string to validate if the string has unique characters"
+		 * ); boolean result = obj.validate(sc.next()); if (result) { System.
+		 * out.println("The String has unique characters"); } else { System.out
+		 * .
+		 * println("The input is empty/The String does not have unique characters"
+		 * ); } sc.close();
+		 */
+		System.out.println(obj.isUnique("Kvya"));
 	}
 
 }
