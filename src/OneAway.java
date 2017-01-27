@@ -5,17 +5,21 @@ public class OneAway {
 	}
 
 	public boolean insert(String one, String two) {
-		int index1=0;
-		int index2=0;
-		
-		return false;
-	}
+		int index1 = 0;
+		int index2 = 0;
 
-	public boolean remove(String one, String two) {
-		if ((one.length() - two.length()) == 1) {
-			return true;
+		while (index1 < one.length() && index2 < two.length()) {
+			if (one.charAt(index1) != two.charAt(index2)) {
+				if (index1 != index2) {
+					return false;
+				}
+				index2++;
+			} else {
+				index1++;
+				index2++;
+			}
 		}
-		return false;
+		return true;
 	}
 
 	public boolean replace(String one, String two) {
@@ -34,6 +38,6 @@ public class OneAway {
 	public static void main(String args[]) {
 		OneAway obj = new OneAway();
 		System.out.println(obj.insert("one", "ones"));
-		System.out.println(obj.remove("one", "on"));
+		obj.insert("one", "two");
 	}
 }
