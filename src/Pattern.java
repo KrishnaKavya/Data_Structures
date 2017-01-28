@@ -45,10 +45,34 @@ public class Pattern {
 		}
 
 	}
-
+	
+	/**
+	 *       *
+	 *	    *** 
+	 * 	   *****	
+	 * 	  *******
+	 * 	 *********
+	 */
+	public void three(){
+		int levels=5, j=5, odds=1;
+		for(int k=1;k<=levels;k++){
+			for(int i=1;i<=j;i++){
+				System.out.print(" ");
+			}
+			for(int i=1;i<=odds;i++){
+				System.out.print("*");
+			}
+		   odds=odds+2;
+		   j--;
+		   System.out.println();
+		}
+		
+	}
+	
 	public static void main(String args[]) {
 		Pattern obj = new Pattern();
 		// obj.one();
-		obj.two();
+		//obj.two();
+		obj.three();
 	}
 }
