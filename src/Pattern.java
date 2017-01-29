@@ -7,7 +7,11 @@ public class Pattern {
 	/**
 	 * Method to print pattern
 	 * 
-	 * * ** *** **** *****
+	 * * 
+	 * ** 
+	 * *** 
+	 * **** 
+	 * *****
 	 */
 	public void one() {
 		System.out.println("Pattern 1");
@@ -23,7 +27,11 @@ public class Pattern {
 	/**
 	 * Method prints the pattern
 	 * 
-	 * * ** *** **** *****
+	 *      *
+	 *     ** 
+	 *    *** 
+	 *   **** 
+	 *  *****
 	 */
 	public void two() {
 		System.out.println("Pattern 2");
@@ -44,7 +52,11 @@ public class Pattern {
 	/**
 	 * Program to print Pyramid
 	 * 
-	 * * *** ***** ******* *********
+	 *     * 
+	 *    *** 
+	 *   ***** 
+	 *  ******* 
+	 * *********
 	 */
 	public void pyramid() {
 		System.out.println("Pyramid");
@@ -68,6 +80,12 @@ public class Pattern {
 
 	/**
 	 * Program to print inverse Pyramid
+	 * 
+	 *  *******
+	 *   *****
+	 *    ***
+	 *     *
+	 *    
 	 */
 	public void inversePyramid() {
 		System.out.println("Inverse Pyramid");
