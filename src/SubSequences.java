@@ -21,8 +21,11 @@ public class SubSequences {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter");
 		String str=sc.nextLine();
-		obj.print("",str,3 );
-		obj.print("", str,1);
+		
+		for(int k=3; k>=1; k--){
+		obj.print("",str,k );
+		}
+		
 		sc.close();
 		
 	}
