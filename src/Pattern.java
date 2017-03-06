@@ -113,5 +113,6 @@ public class Pattern {
 		obj.two();
 		obj.pyramid();
 		obj.inversePyramid();
+		System.out.println("It is going to be great :)");
 	}
 }
