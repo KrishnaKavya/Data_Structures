@@ -7,20 +7,21 @@
  */
 public class BinarySearch {
 
-	public void binarySearch(int[] array, int low, int high, int searchValue) {
+	public boolean binarySearch(int[] array, int low, int high, int searchValue) {
 
 		if (low > high) {
-			return;
+			return false;
 		}
 		int mid = (low + high) / 2;
-		if (searchValue < mid) {
+		if (searchValue < array[mid]) {
 			binarySearch(array, low, mid - 1, searchValue);
-		} else if (searchValue > mid) {
+		} else if (searchValue > array[mid]) {
 			binarySearch(array, mid + 1, high, searchValue);
-		} else if (mid == searchValue) {
+		} else if (array[mid] == searchValue) {
 			System.out.println("element found");
+			return true;
 		}
-
+		return false;
 	}
 
 	public static void main(String[] args) {
@@ -28,7 +29,7 @@ public class BinarySearch {
 		BinarySearch obj = new BinarySearch();
 
 		int[] arr = { 2, 3, 4, 5, 6, 7, 8 };
-		obj.binarySearch(arr, 0, arr.length - 1, 4);
+		System.out.println(obj.binarySearch(arr, 0, arr.length - 1, 1));
 	}
 
 }
