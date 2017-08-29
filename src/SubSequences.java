@@ -18,12 +18,15 @@ public class SubSequences {
 	public static void main(String[] args) {
 		SubSequences obj=new SubSequences();
 		
+		
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter");
-		String str=sc.nextLine();
 		
+		String str=sc.nextLine();
+		System.out.println(str.substring(0,1));
+		System.out.println(str.substring(0));
 		for(int k=3; k>=1; k--){
-		obj.print("",str,k );
+		//obj.print("",str,k );
 		}
 		
 		sc.close();

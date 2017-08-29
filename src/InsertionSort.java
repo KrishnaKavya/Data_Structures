@@ -4,13 +4,10 @@ import java.util.Arrays;
  * 
  * @author M Krishna Kavya
  * 
- *         Class to implement Insertion sort.
- *         Insertion sort is 
- *         1. In place
- *         2. Adaptive
- *         3. Stable
- *         
- *         
+ *         Class to implement Insertion sort. Insertion sort is 1. In place 2.
+ *         Adaptive 3. Stable
+ * 
+ * 
  *
  */
 public class InsertionSort {
@@ -22,8 +19,9 @@ public class InsertionSort {
 	 * @param inputArray
 	 * @return
 	 */
-	
-	int i=0;
+
+	int i = 0;
+
 	public int[] insertionSort(int[] inputArray) {
 		int i = 1;
 		while (i < inputArray.length) {
@@ -38,8 +36,10 @@ public class InsertionSort {
 		}
 		return inputArray;
 	}
+
 	/**
 	 * Insertion sort Implementing using Recursive approach.
+	 * 
 	 * @param inputArray
 	 * @param n
 	 */
@@ -60,21 +60,21 @@ public class InsertionSort {
 	}
 
 	public static void main(String[] args) {
-		
+
 		InsertionSort obj = new InsertionSort();
-		
+
 		int arr[] = { 32, 41, 58, 24, 40, 47 };
 		int arr2[] = { 32, 41, 58, 24, 40, 47 };
-		
+
 		System.out.println("Insertion Sort with Iterative Approach");
-		System.out.println("Original Array: "+Arrays.toString(arr));
+		System.out.println("Original Array: " + Arrays.toString(arr));
 		obj.insertionSort(arr);
-		System.out.println("Sorted Array: "+Arrays.toString(arr));
+		System.out.println("Sorted Array: " + Arrays.toString(arr));
 
 		System.out.println("Insertion Sort with Recursive Approach");
-		System.out.println("Original Array"+Arrays.toString(arr2));
+		System.out.println("Original Array" + Arrays.toString(arr2));
 		obj.insertSort(arr2, arr2.length);
-		System.out.println("Sorted Array:"+Arrays.toString(arr2));	
+		System.out.println("Sorted Array:" + Arrays.toString(arr2));
 
 	}
 
