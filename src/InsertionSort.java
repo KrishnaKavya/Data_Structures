@@ -1,27 +1,29 @@
 import java.util.Arrays;
 
 /**
- * 
  * @author M Krishna Kavya
  * 
  *         Class to implement Insertion sort. Insertion sort is 1. In place 2.
  *         Adaptive 3. Stable
  * 
- * 
- *
+ *         Approach: element is inserted at its respective Position.
+ *         best: O(n)
+ *         worst: O(n2)
  */
 public class InsertionSort {
 
 	/**
-	 * Insertion sort implementing using the iterative approach.
-	 * 
+	 * Insertion sort implementing using the iterative approach. The Sort is
+	 * started from the second position element. Every element is compared to
+	 * all the preceding elements. if current is less than element they are
+	 * replaced. This process is repeated till the current is greater than the
+	 * preceding element or till the beginning of the array is reached. The place
+	 * where the loop breaks is the position of the current element and is
+	 * inserted.
 	 * 
 	 * @param inputArray
 	 * @return
 	 */
-
-	int i = 0;
-
 	public int[] insertionSort(int[] inputArray) {
 		int i = 1;
 		while (i < inputArray.length) {
