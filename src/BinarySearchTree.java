@@ -15,6 +15,8 @@
 
 public class BinarySearchTree {
 	public Node root;
+	
+	Node find=new Node(7,null,null);
 
 	public class Node {
 		public int value;
@@ -179,10 +181,10 @@ public class BinarySearchTree {
 			}
 
 		}
-
 		return result;
 	}
-
+	
+	
 	/**
 	 * The method implements the inorder traversal of BST
 	 * 
@@ -228,6 +230,19 @@ public class BinarySearchTree {
 		postOrder(node.rightNode);
 		System.out.print(node.value + " ");
 	}
+	 public Node findNodeBST(Node root, Node p){
+	 
+	 if(root==null) return null;
+     
+     if(p.value<root.value){
+        return findNodeBST(root.leftNode, p);
+     }else if(p.value> root.value){
+         return findNodeBST(root.rightNode, p);
+     }else{
+         return root;
+     }
+	 }
+
 
 	public static void main(String[] args) {
 		BinarySearchTree obj = new BinarySearchTree();
@@ -255,6 +270,9 @@ public class BinarySearchTree {
 		System.out.println();
 		System.out.println("Post Order Traversal");
 		obj.postOrder(obj.root);
-
+		
+		System.out.println("Finding a node in the BST");
+		Node res=obj.findNodeBST(obj.root, obj.find);
+		System.out.println("Node Found: "+ res.value);
 	}
 }
